@@ -4,6 +4,8 @@
 |------|-----|----|
 |[addressItem](#一addressItem)|在订单或不同页面显示单条地址信息|NaN|
 |[themeView](#二themeView)|在view中设置主题颜色|NaN|
+|[infoItem](#三infoItem)|信息栏(含有图标)|NaN|
+|[navBottom](#四navBottom)|定制化底部导航栏|NaN|
 
 ## 一、addressItem 
 >说明：`addressItem`可以方便的在不同页面中展示当前地址信息。`addressItem`需要一个名为`addressInfo`的`props`以便展示地址信息。
@@ -12,7 +14,7 @@
 |-|-|-|-|
 |addressInfo|{}|Object|单条地址信息对象|
 
-`addressInfo实例`
+### 键addressInfo的格式
 ```javascript
 {
     id: 222,//addressId
@@ -66,7 +68,7 @@
 /** ....其他代码 */
 ```
 ### addressItem 样式截图
-![addressItem样式](./addressItem.png)
+![addressItem样式](./img/addressItem.png)
 
 ## 二、themeView
 > `themeView`是一个可定制`border` `background` `color` 等与主题相关的替代`view`的组件，将`themeView`包裹包含主题颜色的组件，将可以进行对内容进行主题颜色等更改。具体方法请参照下列实例。
@@ -99,3 +101,78 @@ globalData: {
 ```
 ### 作用
 >可以将经常需要变动的CSS部分放在js中进行处理，动态的通过`api`而不需要修改代码的进行颜色，字体等的修改。
+## 三、infoItem
+>说明：在`我的` `推广中心` `设置`等很对页面里，有很多的`信息栏`(左面小图标，中间标题，右面小箭头且一般点击可以跳转到新的页面)，实际上可以说是对`navigator`的封装，但是组件中并没有包含`navigator`，需要自己使用`navigator`在包一层。
+### infoItem的props
+|键|默认值|类型|说明|
+|-|-|-|-|
+|info|{}|Object|传入的info信息|
+
+### 键info的格式
+```javascript
+{
+  iconImg: '/res/icon/icon-extension.png',
+  title: '推广中心',
+  iconArr: '/res/icon/icon_right_click.png',
+  url: '/pages/user/referCenter/referCenter',
+  showFlag: false
+}
+```
+### 使用实例
+```html
+<!--引入页面user.html-->
+<info-item bindtap='callPhone' info="{{kefuInfo}}"></info-item>
+```
+### 样式
+![infoItem实例](./img/infoItem.png)
+## 四、navBottom
+>说明：微信小程序提供的原生`tabbar`样式不是很好看，很难实现许多特性。固根据特定项目对`tabbar`进行了封装`navBottom`以便替换原生的`tabbar`。
+### navBottom 的props
+|键|默认值|类型|说明|
+|-|-|-|-|
+|selectedIndex|0|Number|当前页面|
+|navBtnList|[]|Object|图标样式信息|
+
+### 键navBtnList的格式
+```javascript
+[
+  {
+    url: '/pages/home/home',
+    img: '/res/icon/nav-icon-home.png',
+    selectedImg: '/res/icon/nav-icon-home-pre.png',
+    title: '首页',
+    havT: true
+  }, 
+  {
+    url: '/pages/recommend/recommend',
+    img: '/res/icon/tuijian.png',
+    selectedImg: '/res/icon/tuijian.png',
+    title: '推荐有奖',
+    havT: false
+  },{
+
+    url: '/pages/order/order',
+    img: '/res/icon/nav-icon-order.png',
+    selectedImg: '/res/icon/nav-icon-order-pre.png',
+    title: '订单',
+    havT: true
+  },{
+
+    url: '/pages/user/user',
+    img: '/res/icon/nav-icon-user.png',
+    selectedImg: '/res/icon/nav-icon-user-pre.png',
+    title: '我的',
+    havT: true
+  }
+]
+```
+
+### 引入方式
+```html
+<!--引入的home.html-->
+<nav-bottom selected-index='0' navBtnList='{{navBtnList}}'></nav-bottom>
+```
+
+### 样式
+
+![navBottom](./img/navBottom.png)
