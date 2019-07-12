@@ -76,6 +76,7 @@
 |globalFlag|false|Boolean|是否从全局变量中读取属性值|
 |storageFlag|false|Boolean|是否从storage中读取属性值|
 |type|""|String|[CSS属性名](#在全局或storage中配置type名称)|
+
 **themeView需要从全局变量或storage读取css属性***请按照规则对相应的全局变量或storage进行配置*
 ### themeView组件的使用方式
 - `json中进行引入`
