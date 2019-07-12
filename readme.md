@@ -2,8 +2,8 @@
 
 |组件名称|作用|备注|
 |------|-----|----|
-|[addressItem](#一、addressItem)|在订单或不同页面显示单条地址信息|NaN|
-|[themeView](#二、themeView)|在view中设置主题颜色|NaN|
+|[addressItem](#一addressItem)|在订单或不同页面显示单条地址信息|NaN|
+|[themeView](#二themeView)|在view中设置主题颜色|NaN|
 
 ## 一、addressItem 
 ### addressInfo的props
