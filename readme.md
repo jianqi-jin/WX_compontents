@@ -1,4 +1,4 @@
-# 项目插件
+# 项目组件
 
 |组件名称|作用|备注|
 |------|-----|----|
@@ -41,7 +41,7 @@
 <address-item addressInfo='{{addressInfo}}'></address-item>
 ```
 
-```
+```html
 //引入页面order.wxss
 <address-item addressInfo='{{addressInfo}}'></address-item>
 ```
