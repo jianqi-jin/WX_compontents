@@ -2,14 +2,14 @@
 
 |组件名称|作用|备注|
 |------|-----|----|
-|addressItem|在订单或不同页面显示单条地址信息|NaN|
-|themeView|在view中设置主题颜色|NaN|
+|[addressItem](#一、addressItem)|在订单或不同页面显示单条地址信息|NaN|
+|[themeView](#二、themeView)|在view中设置主题颜色|NaN|
 
 ## 一、addressItem 
 ### addressInfo的props
-|键|值|类型|
-|-|-|-|
-|addressInfo|{}|Object|
+|键|值|类型|说明|
+|-|-|-|-|
+|addressInfo|{}|Object|单条地址信息对象|
 
 `addressInfo实例`
 ```javascript
@@ -66,3 +66,34 @@
 ```
 ### addressItem 样式截图
 ![addressItem样式](./addressItem.png)
+
+## 二、themeView
+> `themeView`是一个可定制`border` `background` `color` 等与主题相关的替代`view`的组件，将`themeView`包裹包含主题颜色的组件，将可以进行对内容进行主题颜色等更改。具体方法请参照下列实例。
+### themeView的props
+|键|默认值|类型|说明|
+|-|-|-|-|
+|globalFlag|false|Boolean|是否从全局变量中读取属性值|
+|storageFlag|false|Boolean|是否从storage中读取属性值|
+|type|""|String|[CSS属性名](#在全局或storage中配置type名称)|
+**themeView需要从全局变量或storage读取css属性***请按照规则对相应的全局变量或storage进行配置*
+### themeView组件的使用方式
+- `json中进行引入`
+- `wxml中引入`
+```html
+<theme-view class='btn2' type="themeBack">
+  <view bindtap='navToOrderDetail'>查看订单</view>
+</theme-view>
+```
+`themeView`需要接受`type`,`type`是在`globalData`或`storage`中配置的`CSS`,请确保有对应的`CSS`内容。
+
+### 在全局或storage中配置type(CSS)
+```javascript
+//app.js
+/** 其他代码 */
+globalData: {
+  themeBack: 'margin:0!important;background:#0000ff!important;color:#fff!important;border-radius:400px;', //themeBack风格
+}
+/** 其他代码 */
+```
+### 作用
+>可以将经常需要变动的CSS部分放在js中进行处理，动态的通过`api`而不需要修改代码的进行颜色，字体等的修改。
