@@ -6,6 +6,7 @@
 |[themeView](#二themeView)|在view中设置主题颜色|NaN|
 
 ## 一、addressItem 
+>说明：`addressItem`可以方便的在不同页面中展示当前地址信息。`addressItem`需要一个名为`addressInfo`的`props`以便展示地址信息。
 ### addressInfo的props
 |键|值|类型|说明|
 |-|-|-|-|
