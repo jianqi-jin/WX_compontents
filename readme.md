@@ -12,7 +12,7 @@
 |addressInfo|{}|Object|
 
 `addressInfo实例`
-```
+```javascript
 {
     id: 222,//addressId
     realname: "靳建奇",//名字
@@ -27,7 +27,7 @@
 }
 ```
 ### addressInfo组件的引入
-```
+```javascript
 //引入页面order.json
 {
   "usingComponents": {
@@ -36,7 +36,7 @@
 }
 ```
 
-```
+```html
 //引入页面order.wxml
 <address-item addressInfo='{{addressInfo}}'></address-item>
 ```
@@ -46,7 +46,7 @@
 <address-item addressInfo='{{addressInfo}}'></address-item>
 ```
 
-```
+```javascript
 //引入页面order.js
 /** ....其他代码 */
   onShow: function() {
